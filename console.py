@@ -8,6 +8,7 @@ quit and EOF to exit the program
 a custom prompt: (hbnb)
 an empty line + ENTER shouldn’t execute anything"""
 
+
 class HBNBCommand(cmd.Cmd):
     """change to custom which is hbnb"""
     prompt = "(hbnb)"
@@ -17,11 +18,13 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_quit(self, args):
-        """Quits to quit the shell"""
+        """Quit command to exit the program"""
         return True
 
     def emptyline(self):
-        """empty line when where the user presses Enter without typing any command."""
+        """empty line when where the user presses Enter """
         pass
+
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
