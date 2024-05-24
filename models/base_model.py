@@ -26,9 +26,18 @@ class BaseModel():
         """
         self.updated_at = datetime.now()
 
+    def __str__(self):
+        """modify ro string"""
+        forma = "[{}] ({}) {}"
+        return forma.format(
+                type(self).__name__,
+                self.id,
+                self.__dict__)
+
+
     def to_dict(self):
         """
-        returns a dictionary containing all keys/values
+        returns a dic with all keys/values
         """
         dict = {**self.__dict__}
         dict['__class__'] = type(self).__name__
@@ -36,12 +45,3 @@ class BaseModel():
         dict['updated_at'] = dict['updated_at'].isoformat()
 
         return dict
-
-    def __str__(self):
-        """
-        Returns dic as string
-        """
-        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
-
-    
-
